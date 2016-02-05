@@ -159,7 +159,7 @@
   }
   {
     'match': '\\b(batch|emit|filter|head|input|join|keep|pace|pass|sequence|put|read|reduce|remove|skip|sort|split|tail|unbatch|uniq|view|write)\\b'
-    'name': 'support.proc.juttle'
+    'name': 'support.function.juttle'
   }
 ]
 'repository':
