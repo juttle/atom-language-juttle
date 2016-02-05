@@ -1,53 +1,40 @@
-'scopeName': 'source.js'
+'scopeName': 'source.juttle'
 'fileTypes': [
-  'js'
-  '_js'
-  'es'
-  'es6'
-  'gs'
-  'htc'
-  'jscad'
-  'jsm'
-  'json5'
-  'pac'
-  'pjs'
-  'xsjs'
-  'xsjslib'
+  'juttle'
 ]
-'firstLineMatch': '^#!.*\\b(node|iojs|JavaScript)'
-'name': 'JavaScript'
+'name': 'Juttle'
 'patterns': [
   {
     'comment': 'ES6 import'
     'begin': '(?<!\\.)\\b(import)(?!\\s*:)\\b'
     'beginCaptures':
       '1':
-        'name': 'keyword.control.js'
+        'name': 'keyword.control.juttle'
     'patterns': [
       {
         'comment': '{ member1 , member2 as alias2 , [...] }'
         'begin': '\\{'
         'beginCaptures':
           0:
-            'name': 'punctuation.definition.modules.begin.js'
+            'name': 'punctuation.definition.modules.begin.juttle'
         'end': '\\}'
         'endCaptures':
           0:
-            'name': 'punctuation.definition.modules.end.js'
+            'name': 'punctuation.definition.modules.end.juttle'
         'patterns': [
           {
             'comment': '(default|name) as alias'
             'captures':
               '1':
-                'name': 'variable.language.default.js'
+                'name': 'variable.language.default.juttle'
               '2':
-                'name': 'variable.other.module.js'
+                'name': 'variable.other.module.juttle'
               '3':
-                'name': 'keyword.control.js'
+                'name': 'keyword.control.juttle'
               '4':
-                'name': 'invalid.illegal.js'
+                'name': 'invalid.illegal.juttle'
               '5':
-                'name': 'variable.other.module-alias.js'
+                'name': 'variable.other.module-alias.juttle'
             'match': '(?x)
               (?: \\b(default)\\b | \\b([a-zA-Z_$][a-zA-Z_$0-9]*)\\b)
               \\s*
@@ -58,14 +45,14 @@
           }
           {
             'match': ','
-            'name': 'meta.delimiter.object.comma.js'
+            'name': 'meta.delimiter.object.comma.juttle'
           }
           {
             'include': '#comments'
           }
           {
             'match': '\\b([a-zA-Z_$][a-zA-Z_$0-9]*)\\b'
-            'name': 'variable.other.module.js'
+            'name': 'variable.other.module.juttle'
           }
         ]
       }
@@ -73,17 +60,17 @@
         'comment': '(default|*|name) as alias'
         'captures':
           '1':
-            'name': 'variable.language.default.js'
+            'name': 'variable.language.default.juttle'
           '2':
-            'name': 'variable.language.import-all.js'
+            'name': 'variable.language.import-all.juttle'
           '3':
-            'name': 'variable.other.module.js'
+            'name': 'variable.other.module.juttle'
           '4':
-            'name': 'keyword.control.js'
+            'name': 'keyword.control.juttle'
           '5':
-            'name': 'invalid.illegal.js'
+            'name': 'invalid.illegal.juttle'
           '6':
-            'name': 'variable.other.module-alias.js'
+            'name': 'variable.other.module-alias.juttle'
         'match': '(?x)
           (?: \\b(default)\\b | (\\*) | \\b([a-zA-Z_$][a-zA-Z_$0-9]*)\\b)
           \\s*
@@ -94,11 +81,11 @@
       }
       {
         'match': '\\*'
-        'name': 'variable.language.import-all.js'
+        'name': 'variable.language.import-all.juttle'
       }
       {
         'match': '\\b(default)\\b'
-        'name': 'variable.language.default.js'
+        'name': 'variable.language.default.juttle'
       }
       {
         'include': '#strings'
@@ -108,39 +95,39 @@
       }
       {
         'match': '\\b(from)\\b'
-        'name': 'keyword.control.js'
+        'name': 'keyword.control.juttle'
       }
       {
         'match': '\\b([a-zA-Z_$][a-zA-Z_$0-9]*)\\b(?=.*\\bfrom\\b)'
-        'name': 'variable.other.module.js'
+        'name': 'variable.other.module.juttle'
       }
       {
         'match': ','
-        'name': 'meta.delimiter.object.comma.js'
+        'name': 'meta.delimiter.object.comma.juttle'
       }
     ]
     'end': '(?=;|$)'
-    'name': 'meta.import.js'
+    'name': 'meta.import.juttle'
   }
   {
     'comment': 'ES6 export: `export default (variable|class|function, etc.)`'
     'match': '(?x) \\b(export)\\b \\s* \\b(default)\\b (?:\\s*) \\b((?!\\bfunction\\b|\\bclass\\b|\\blet\\b|\\bvar\\b|\\bconst\\b)[a-zA-Z_$][a-zA-Z_$0-9]*)?\\b'
     'captures':
       '0':
-        'name': 'meta.export.js'
+        'name': 'meta.export.juttle'
       '1':
-        'name': 'keyword.control.js'
+        'name': 'keyword.control.juttle'
       '2':
-        'name': 'variable.language.default.js'
+        'name': 'variable.language.default.juttle'
       '3':
-        'name': 'variable.other.module.js'
+        'name': 'variable.other.module.juttle'
   }
   {
     'comment': 'ES6 export, re-export: `export {member as alias, [...]} [from ...]`'
     'begin': '(?<!\\.)\\b(export)(?!\\s*:)\\b'
     'beginCaptures':
       '1':
-        'name': 'keyword.control.js'
+        'name': 'keyword.control.juttle'
     'patterns': [
       {
         'include': '#numbers'
@@ -150,27 +137,27 @@
         'begin': '\\{(?=.*\\bfrom\\b)'
         'beginCaptures':
           0:
-            'name': 'punctuation.definition.modules.begin.js'
+            'name': 'punctuation.definition.modules.begin.juttle'
         'end': '\\}'
         'endCaptures':
           0:
-            'name': 'punctuation.definition.modules.end.js'
+            'name': 'punctuation.definition.modules.end.juttle'
         'patterns': [
           {
             'comment': '(default|name) as alias'
             'captures':
               '1':
-                'name': 'variable.language.default.js'
+                'name': 'variable.language.default.juttle'
               '2':
-                'name': 'variable.other.module.js'
+                'name': 'variable.other.module.juttle'
               '3':
-                'name': 'keyword.control.js'
+                'name': 'keyword.control.juttle'
               '4':
-                'name': 'variable.language.default.js'
+                'name': 'variable.language.default.juttle'
               '5':
-                'name': 'invalid.illegal.js'
+                'name': 'invalid.illegal.juttle'
               '6':
-                'name': 'variable.other.module-alias.js'
+                'name': 'variable.other.module-alias.juttle'
             'match': '(?x)
               (?: \\b(default)\\b | \\b([a-zA-Z_$][a-zA-Z_$0-9]*)\\b)
               \\s*
@@ -181,14 +168,14 @@
           }
           {
             'match': ','
-            'name': 'meta.delimiter.object.comma.js'
+            'name': 'meta.delimiter.object.comma.juttle'
           }
           {
             'include': '#comments'
           }
           {
             'match': '\\b([a-zA-Z_$][a-zA-Z_$0-9]*)\\b'
-            'name': 'variable.other.module.js'
+            'name': 'variable.other.module.juttle'
           }
         ]
       }
@@ -197,27 +184,27 @@
         'begin': '(?![a-zA-Z_$0-9])\\{'
         'beginCaptures':
           0:
-            'name': 'punctuation.definition.modules.begin.js'
+            'name': 'punctuation.definition.modules.begin.juttle'
         'end': '\\}'
         'endCaptures':
           0:
-            'name': 'punctuation.definition.modules.end.js'
+            'name': 'punctuation.definition.modules.end.juttle'
         'patterns': [
           {
             'comment': 'name as (default|alias)'
             'captures':
               '1':
-                'name': 'invalid.illegal.js'
+                'name': 'invalid.illegal.juttle'
               '2':
-                'name': 'variable.other.module.js'
+                'name': 'variable.other.module.juttle'
               '3':
-                'name': 'keyword.control.js'
+                'name': 'keyword.control.juttle'
               '4':
-                'name': 'variable.language.default.js'
+                'name': 'variable.language.default.juttle'
               '5':
-                'name': 'invalid.illegal.js'
+                'name': 'invalid.illegal.juttle'
               '6':
-                'name': 'variable.other.module-alias.js'
+                'name': 'variable.other.module-alias.juttle'
             'match': '(?x)
               (?: \\b(default)\\b | \\b([a-zA-Z_$][a-zA-Z_$0-9]*)\\b)
               \\s*
@@ -231,21 +218,21 @@
           }
           {
             'match': ','
-            'name': 'meta.delimiter.object.comma.js'
+            'name': 'meta.delimiter.object.comma.juttle'
           }
           {
             'match': '\\b([a-zA-Z_$][a-zA-Z_$0-9]*)\\b'
-            'name': 'variable.other.module.js'
+            'name': 'variable.other.module.juttle'
           }
         ]
       }
       {
         'match': '\\*(?=.*\\bfrom\\b)'
-        'name': 'variable.language.import-all.js'
+        'name': 'variable.language.import-all.juttle'
       }
       {
         'match': '\\b(default)\\b'
-        'name': 'variable.language.default.js'
+        'name': 'variable.language.default.juttle'
       }
       {
         'include': '#strings'
@@ -255,68 +242,68 @@
       }
       {
         'match': '\\b(from)\\b'
-        'name': 'keyword.control.js'
+        'name': 'keyword.control.juttle'
       }
       {
         'match': '\\b([a-zA-Z_$][a-zA-Z_$0-9]*)\\b'
-        'name': 'variable.other.module.js'
+        'name': 'variable.other.module.juttle'
       }
       {
         'match': ','
-        'name': 'meta.delimiter.object.comma.js'
+        'name': 'meta.delimiter.object.comma.juttle'
       }
       {
         'include': '#operators'
       }
     ]
     'end': '(?=;|\\bfunction\\b|\\bclass\\b|\\blet\\b|\\bvar\\b|\\bconst\\b|$)'
-    'name': 'meta.export.js'
+    'name': 'meta.export.juttle'
   }
   {
     'match': '(?<!\\.)\\b(super|this)(?!\\s*:)\\b|(?<=\\?)(?:\\s*)(super|this)(?=\\s*:)'
     'captures':
       '1':
-        'name': 'variable.language.js'
+        'name': 'variable.language.juttle'
       '2':
-        'name': 'variable.language.js'
+        'name': 'variable.language.juttle'
   }
   {
     'captures':
       '1':
-        'name': 'support.class.js'
+        'name': 'support.class.juttle'
       '2':
-        'name': 'support.constant.js'
+        'name': 'support.constant.juttle'
       '3':
-        'name': 'keyword.operator.assignment.js'
+        'name': 'keyword.operator.assignment.juttle'
     'comment': 'match stuff like: Sound.prototype = { … } when extending an object'
     'match': '([a-zA-Z_?.$][\\w?.$]*)\\.(prototype)\\s*(=)\\s*'
-    'name': 'meta.class.js'
+    'name': 'meta.class.juttle'
   }
   {
     'begin': '([a-zA-Z_?.$][\\w?.$]*)\\.(prototype)\\.([a-zA-Z_?.$][\\w?.$]*)\\s*(=)\\s*(?:(async)(?:\\s+))?(function\\*?)\\s*(\\*?)(\\()'
     'beginCaptures':
       '1':
-        'name': 'support.class.js'
+        'name': 'support.class.juttle'
       '2':
-        'name': 'support.constant.js'
+        'name': 'support.constant.juttle'
       '3':
-        'name': 'entity.name.function.js'
+        'name': 'entity.name.function.juttle'
       '4':
-        'name': 'keyword.operator.assignment.js'
+        'name': 'keyword.operator.assignment.juttle'
       '5':
-        'name': 'storage.modifier.js'
+        'name': 'storage.modifier.juttle'
       '6':
-        'name': 'storage.type.function.js'
+        'name': 'storage.type.function.juttle'
       '7':
-        'name': 'storage.type.function.js'
+        'name': 'storage.type.function.juttle'
       '8':
-        'name': 'punctuation.definition.parameters.begin.js'
+        'name': 'punctuation.definition.parameters.begin.juttle'
     'comment': 'match stuff like: Sound.prototype.play = function() { … }'
     'end': '(\\))'
     'endCaptures':
       '1':
-        'name': 'punctuation.definition.parameters.end.js'
-    'name': 'meta.function.prototype.js'
+        'name': 'punctuation.definition.parameters.end.juttle'
+    'name': 'meta.function.prototype.juttle'
     'patterns': [
       {
         'include': '#function-params'
@@ -326,42 +313,42 @@
   {
     'captures':
       '1':
-        'name': 'support.class.js'
+        'name': 'support.class.juttle'
       '2':
-        'name': 'support.constant.js'
+        'name': 'support.constant.juttle'
       '3':
-        'name': 'entity.name.function.js'
+        'name': 'entity.name.function.juttle'
       '4':
-        'name': 'keyword.operator.assignment.js'
+        'name': 'keyword.operator.assignment.juttle'
     'comment': 'match stuff like: Sound.prototype.play = myfunc'
     'match': '([a-zA-Z_?.$][\\w?.$]*)\\.(prototype)\\.([a-zA-Z_?.$][\\w?.$]*)\\s*(=)\\s*'
-    'name': 'meta.function.js'
+    'name': 'meta.function.juttle'
   }
   {
     'begin': '([a-zA-Z_?.$][\\w?.$]*)\\.([a-zA-Z_?.$][\\w?.$]*)\\s*(=)\\s*(?:(async)(?:\\s+))?(function\\*?)\\s*(\\*?)\\s*([a-zA-Z_?$][\\w?$]*)?\\s*(\\()'
     'beginCaptures':
       '1':
-        'name': 'support.class.js'
+        'name': 'support.class.juttle'
       '2':
-        'name': 'entity.name.function.js'
+        'name': 'entity.name.function.juttle'
       '3':
-        'name': 'keyword.operator.assignment.js'
+        'name': 'keyword.operator.assignment.juttle'
       '4':
-        'name': 'storage.modifier.js'
+        'name': 'storage.modifier.juttle'
       '5':
-        'name': 'storage.type.function.js'
+        'name': 'storage.type.function.juttle'
       '6':
-        'name': 'storage.type.function.js'
+        'name': 'storage.type.function.juttle'
       '7':
-        'name': 'entity.name.function.js'
+        'name': 'entity.name.function.juttle'
       '8':
-        'name': 'punctuation.definition.parameters.begin.js'
+        'name': 'punctuation.definition.parameters.begin.juttle'
     'comment': 'match stuff like: Sound.play = function() { … }'
     'end': '(\\))'
     'endCaptures':
       '1':
-        'name': 'punctuation.definition.parameters.end.js'
-    'name': 'meta.function.js'
+        'name': 'punctuation.definition.parameters.end.juttle'
+    'name': 'meta.function.juttle'
     'patterns': [
       {
         'include': '#function-params'
@@ -372,25 +359,25 @@
     'begin': '([a-zA-Z_?$][\\w?$]*)\\s*(=)\\s*(?:(async)(?:\\s+))?(function\\*?)\\s*(\\*?)\\s*([a-zA-Z_?$][\\w?$]*)?\\s*(\\()'
     'beginCaptures':
       '1':
-        'name': 'entity.name.function.js'
+        'name': 'entity.name.function.juttle'
       '2':
-        'name': 'keyword.operator.assignment.js'
+        'name': 'keyword.operator.assignment.juttle'
       '3':
-        'name': 'storage.modifier.js'
+        'name': 'storage.modifier.juttle'
       '4':
-        'name': 'storage.type.function.js'
+        'name': 'storage.type.function.juttle'
       '5':
-        'name': 'storage.type.function.js'
+        'name': 'storage.type.function.juttle'
       '6':
-        'name': 'entity.name.function.js'
+        'name': 'entity.name.function.juttle'
       '7':
-        'name': 'punctuation.definition.parameters.begin.js'
+        'name': 'punctuation.definition.parameters.begin.juttle'
     'comment': 'match stuff like: play = function() { … }'
     'end': '(\\))'
     'endCaptures':
       '1':
-        'name': 'punctuation.definition.parameters.end.js'
-    'name': 'meta.function.js'
+        'name': 'punctuation.definition.parameters.end.juttle'
+    'name': 'meta.function.juttle'
     'patterns': [
       {
         'include': '#function-params'
@@ -401,21 +388,21 @@
     'begin': '\\b(?:(async)(?:\\s+))?(function\\*?)\\s*((\\*)|(?:(?:\\s+)(\\*?[a-zA-Z_$][\\w$]*)))?\\s*(\\()'
     'beginCaptures':
       '1':
-        'name': 'storage.modifier.js'
+        'name': 'storage.modifier.juttle'
       '2':
-        'name': 'storage.type.function.js'
+        'name': 'storage.type.function.juttle'
       '4':
-        'name': 'storage.type.function.js'
+        'name': 'storage.type.function.juttle'
       '5':
-        'name': 'entity.name.function.js'
+        'name': 'entity.name.function.juttle'
       '6':
-        'name': 'punctuation.definition.parameters.begin.js'
+        'name': 'punctuation.definition.parameters.begin.juttle'
     'comment': 'match regular function like: function myFunc(arg) { … }'
     'end': '(\\))'
     'endCaptures':
       '1':
-        'name': 'punctuation.definition.parameters.end.js'
-    'name': 'meta.function.js'
+        'name': 'punctuation.definition.parameters.end.juttle'
+    'name': 'meta.function.juttle'
     'patterns': [
       {
         'include': '#function-params'
@@ -426,25 +413,25 @@
     'begin': '\\b([a-zA-Z_?.$][\\w?.$]*)\\s*(:)\\s*\\b(?:(async)(?:\\s+))?(function\\*?)\\s*(\\*?)\\s*([a-zA-Z_?$][\\w?$]*)?\\s*(\\()'
     'beginCaptures':
       '1':
-        'name': 'entity.name.function.js'
+        'name': 'entity.name.function.juttle'
       '2':
-        'name': 'keyword.operator.assignment.js'
+        'name': 'keyword.operator.assignment.juttle'
       '3':
-        'name': 'storage.modifier.js'
+        'name': 'storage.modifier.juttle'
       '4':
-        'name': 'storage.type.function.js'
+        'name': 'storage.type.function.juttle'
       '5':
-        'name': 'storage.type.function.js'
+        'name': 'storage.type.function.juttle'
       '6':
-        'name': 'entity.name.function.js'
+        'name': 'entity.name.function.juttle'
       '7':
-        'name': 'punctuation.definition.parameters.begin.js'
+        'name': 'punctuation.definition.parameters.begin.juttle'
     'comment': 'match stuff like: foobar: function() { … }'
     'end': '(\\))'
     'endCaptures':
       '1':
-        'name': 'punctuation.definition.parameters.end.js'
-    'name': 'meta.function.json.js'
+        'name': 'punctuation.definition.parameters.end.juttle'
+    'name': 'meta.function.juttleon.juttle'
     'patterns': [
       {
         'include': '#function-params'
@@ -455,39 +442,39 @@
     'begin': '(?:((\')([^\']*?)(\'))|((")([^"]*?)(")))\\s*(:)\\s*\\b(?:(async)(?:\\s+))?(function\\*?)\\s*(\\*?)\\s*([a-zA-Z_?$][\\w?$]*)?\\s*(\\()'
     'beginCaptures':
       '1':
-        'name': 'string.quoted.single.js'
+        'name': 'string.quoted.single.juttle'
       '2':
-        'name': 'punctuation.definition.string.begin.js'
+        'name': 'punctuation.definition.string.begin.juttle'
       '3':
-        'name': 'entity.name.function.js'
+        'name': 'entity.name.function.juttle'
       '4':
-        'name': 'punctuation.definition.string.end.js'
+        'name': 'punctuation.definition.string.end.juttle'
       '5':
-        'name': 'string.quoted.double.js'
+        'name': 'string.quoted.double.juttle'
       '6':
-        'name': 'punctuation.definition.string.begin.js'
+        'name': 'punctuation.definition.string.begin.juttle'
       '7':
-        'name': 'entity.name.function.js'
+        'name': 'entity.name.function.juttle'
       '8':
-        'name': 'punctuation.definition.string.end.js'
+        'name': 'punctuation.definition.string.end.juttle'
       '9':
-        'name': 'keyword.operator.assignment.js'
+        'name': 'keyword.operator.assignment.juttle'
       '10':
-        'name': 'storage.modifier.js'
+        'name': 'storage.modifier.juttle'
       '11':
-        'name': 'storage.type.function.js'
+        'name': 'storage.type.function.juttle'
       '12':
-        'name': 'storage.type.function.js'
+        'name': 'storage.type.function.juttle'
       '13':
-        'name': 'entity.name.function.js'
+        'name': 'entity.name.function.juttle'
       '14':
-        'name': 'punctuation.definition.parameters.begin.js'
+        'name': 'punctuation.definition.parameters.begin.juttle'
     'comment': 'Attempt to match "foo": function'
     'end': '(\\))'
     'endCaptures':
       '1':
-        'name': 'punctuation.definition.parameters.end.js'
-    'name': 'meta.function.json.js'
+        'name': 'punctuation.definition.parameters.end.juttle'
+    'name': 'meta.function.juttleon.juttle'
     'patterns': [
       {
         'include': '#function-params'
@@ -498,13 +485,13 @@
     'begin': '\\b(constructor)\\s*(\\()'
     'beginCaptures':
       '1':
-        'name': 'entity.name.function.constructor.js'
+        'name': 'entity.name.function.constructor.juttle'
       '2':
-        'name': 'punctuation.definition.parameters.begin.js'
+        'name': 'punctuation.definition.parameters.begin.juttle'
     'end': '(\\))'
     'endCaptures':
       '1':
-        'name': 'punctuation.definition.parameters.end.js'
+        'name': 'punctuation.definition.parameters.end.juttle'
     'patterns': [
       {
         'include': '#function-params'
@@ -528,31 +515,31 @@
     '''
     'captures':
       '1':
-        'name': 'storage.type.class.js'
+        'name': 'storage.type.class.juttle'
       '2':
-        'name': 'storage.modifier.js'
+        'name': 'storage.modifier.juttle'
       '3':
-        'name': 'entity.name.type.js'
+        'name': 'entity.name.type.juttle'
       '4':
-        'name': 'entity.name.type.js'
+        'name': 'entity.name.type.juttle'
       '5':
-        'name': 'storage.modifier.js'
+        'name': 'storage.modifier.juttle'
       '6':
-        'name': 'entity.name.type.js'
-    'name': 'meta.class.js'
+        'name': 'entity.name.type.juttle'
+    'name': 'meta.class.juttle'
   }
   {
-    'name': 'meta.function.arrow.js'
+    'name': 'meta.function.arrow.juttle'
     'begin': '(?<![A-Za-z0-9])(\\()(?=(?:[^\\(\\)]*)?\\)\\s*=>)'
     'beginCaptures':
       '1':
-        'name': 'punctuation.definition.parameters.begin.js'
+        'name': 'punctuation.definition.parameters.begin.juttle'
     'end': '(\\))\\s*(=>)'
     'endCaptures':
       '1':
-        'name': 'punctuation.definition.parameters.end.js'
+        'name': 'punctuation.definition.parameters.end.juttle'
       '2':
-        'name': 'storage.type.arrow.js'
+        'name': 'storage.type.arrow.juttle'
     'patterns': [
       {
         'include': '#function-params'
@@ -561,21 +548,21 @@
   }
   {
     'comment': 'match stuff like: play = (a,b) => { … }'
-    'name': 'meta.function.arrow.js'
+    'name': 'meta.function.arrow.juttle'
     'begin': '([a-zA-Z_?$][\\w?$]*)\\s*(=)\\s*(\\()(?=(?:[^\\(\\)]*)?\\)\\s*=>)'
     'beginCaptures':
       '1':
-        'name': 'entity.name.function.js'
+        'name': 'entity.name.function.juttle'
       '2':
-        'name': 'keyword.operator.assignment.js'
+        'name': 'keyword.operator.assignment.juttle'
       '3':
-        'name': 'punctuation.definition.parameters.begin.js'
+        'name': 'punctuation.definition.parameters.begin.juttle'
     'end': '(\\))\\s*(=>)'
     'endCaptures':
       '1':
-        'name': 'punctuation.definition.parameters.end.js'
+        'name': 'punctuation.definition.parameters.end.juttle'
       '2':
-        'name': 'storage.type.arrow.js'
+        'name': 'storage.type.arrow.juttle'
     'patterns': [
       {
         'include': '#function-params'
@@ -584,23 +571,23 @@
   }
   {
     'comment': 'match stuff like: Sound.play = (a,b) => { … }'
-    'name': 'meta.function.arrow.js'
+    'name': 'meta.function.arrow.juttle'
     'begin': '([a-zA-Z_?$]*)\\.([a-zA-Z_?$][\\w?$]*)\\s*(=)\\s*(\\()(?=(?:[^\\(\\)]*)?\\)\\s*=>)'
     'beginCaptures':
       '1':
-        'name': 'support.class.js'
+        'name': 'support.class.juttle'
       '2':
-        'name': 'entity.name.function.js'
+        'name': 'entity.name.function.juttle'
       '3':
-        'name': 'keyword.operator.assignment.js'
+        'name': 'keyword.operator.assignment.juttle'
       '4':
-        'name': 'punctuation.definition.parameters.begin.js'
+        'name': 'punctuation.definition.parameters.begin.juttle'
     'end': '(\\))\\s*(=>)'
     'endCaptures':
       '1':
-        'name': 'punctuation.definition.parameters.end.js'
+        'name': 'punctuation.definition.parameters.end.juttle'
       '2':
-        'name': 'storage.type.arrow.js'
+        'name': 'storage.type.arrow.juttle'
     'patterns': [
       {
         'include': '#function-params'
@@ -610,23 +597,23 @@
   {
     'captures':
       '1':
-        'name': 'keyword.operator.new.js'
+        'name': 'keyword.operator.new.juttle'
       '2':
-        'name': 'entity.name.type.instance.js'
+        'name': 'entity.name.type.instance.juttle'
     'match': '(new)\\s+(\\$?\\w+(?:\\.\\w*)?)'
     'name': 'meta.class.instance.constructor'
   }
   {
     'match': '\\b(console)\\b'
-    'name': 'entity.name.type.object.js.console'
+    'name': 'entity.name.type.object.juttle.console'
   }
   {
     'match': '\\b(\\.)(assert|clear|debug|error|info|log|profile|profileEnd|time|timeEnd|warn)(?=\\()'
     'captures':
       '1':
-        'name': 'meta.delimiter.method.period.js'
+        'name': 'meta.delimiter.method.period.juttle'
       '2':
-        'name': 'support.function.js.console'
+        'name': 'support.function.juttle.console'
   }
   {
     'include': '#strings'
@@ -637,75 +624,75 @@
   {
     'captures':
       '0':
-        'name': 'punctuation.definition.comment.html.js'
+        'name': 'punctuation.definition.comment.html.juttle'
       '2':
-        'name': 'punctuation.definition.comment.html.js'
+        'name': 'punctuation.definition.comment.html.juttle'
     'match': '(<!--|-->)'
-    'name': 'comment.block.html.js'
+    'name': 'comment.block.html.juttle'
   }
   {
     'match': '=>',
-    'name': 'storage.type.arrow.js'
+    'name': 'storage.type.arrow.juttle'
   }
   {
     'match': '(?<!\\.)\\b(class|enum|function|interface)(?!\\s*:)\\b'
-    'name': 'storage.type.js'
+    'name': 'storage.type.juttle'
   }
   {
     'match': '(?<!\\.)\\b(async|export|extends|implements|private|protected|public|static)(?!\\s*:)\\b'
-    'name': 'storage.modifier.js'
+    'name': 'storage.modifier.juttle'
   }
   {
     'match': '(?<!\\.)\\b(let|var)(?!\\s*:)\\b'
-    'name': 'storage.type.var.js'
+    'name': 'storage.type.var.juttle'
   }
   {
     'begin': '(?<!\\.)\\b(const)(?!\\s*:)\\b'
     'beginCaptures':
       '1':
-        'name': 'storage.modifier.js'
+        'name': 'storage.modifier.juttle'
     'end': '(\\bof\\b|\\bin\\b)|(;)|(=)|(?<!,)\\n'
     'endCaptures':
       '1':
-        'name': 'keyword.operator.$1.js'
+        'name': 'keyword.operator.$1.juttle'
       '2':
-        'name': 'punctuation.terminator.statement.js'
+        'name': 'punctuation.terminator.statement.juttle'
       '3':
-        'name': 'keyword.operator.assignment.js'
+        'name': 'keyword.operator.assignment.juttle'
     'patterns': [
       {
         'match': '([$_a-zA-Z][$_a-zA-Z0-9]*)\\s*(:)\\s*([$_a-zA-Z][$_a-zA-Z0-9]*)?'
         'captures':
           '2':
-            'name': 'keyword.operator.assignment.js'
+            'name': 'keyword.operator.assignment.juttle'
           '3':
-            'name': 'constant.other.js'
+            'name': 'constant.other.juttle'
       }
       {
         'match': '([$_a-zA-Z][$_a-zA-Z0-9]*)'
         'captures':
           '1':
-            'name': 'constant.other.js'
+            'name': 'constant.other.juttle'
       }
       {
         'match': '\\.\\.\\.'
-        'name': 'keyword.operator.spread.js'
+        'name': 'keyword.operator.spread.juttle'
       }
       {
         'match': ','
-        'name': 'meta.delimiter.object.comma.js'
+        'name': 'meta.delimiter.object.comma.juttle'
       }
       {
         'match': '\\(|\\)'
-        'name': 'meta.brace.round.js'
+        'name': 'meta.brace.round.juttle'
       }
       {
         'match': '{|}'
-        'name': 'meta.brace.curly.js'
+        'name': 'meta.brace.curly.juttle'
       }
       {
         'match': '\\[|\\]'
-        'name': 'meta.brace.square.js'
+        'name': 'meta.brace.square.juttle'
       }
       {
         'include': '#comments'
@@ -716,136 +703,136 @@
     'match': '(?<!\\.)\\b(yield)(?!\\s*:)\\b(?:\\s*(\\*))?|(?<=\\?)(?:\\s*)(yield)(?=\\s*:)',
     'captures':
       '1':
-        'name': 'keyword.control.js'
+        'name': 'keyword.control.juttle'
       '2':
-        'name': 'storage.modifier.js'
+        'name': 'storage.modifier.juttle'
       '3':
-        'name': 'keyword.control.js'
+        'name': 'keyword.control.juttle'
       '4':
-        'name': 'storage.modifier.js'
-    'name': 'meta.control.yield.js'
+        'name': 'storage.modifier.juttle'
+    'name': 'meta.control.yield.juttle'
   }
   {
     'match': '(?<!\\.)\\b(await|break|case|catch|continue|do|else|finally|for|if|import|from|package|return|switch|throw|try|while|with)(?!\\s*:)\\b'
-    'name': 'keyword.control.js'
+    'name': 'keyword.control.juttle'
   }
   {
     'match': '(?<!\\.)\\b(default)\\b'
-    'name': 'keyword.control.js'
+    'name': 'keyword.control.juttle'
   }
   {
     'match': '(?<!\\.)\\b(delete|in|of|instanceof|new|typeof|void)(?!\\s*:)\\b'
-    'name': 'keyword.operator.$1.js'
+    'name': 'keyword.operator.$1.juttle'
   }
   {
     'match': '\\.\\.\\.'
-    'name': 'keyword.operator.spread.js'
+    'name': 'keyword.operator.spread.juttle'
   }
   {
     'match': '(?<!\\.)\\b(true|false)(?!\\s*:)\\b|(?<=\\?)(?:\\s*)(true|false)(?=\\s*:)'
     'captures':
       '1':
-        'name': 'constant.language.boolean.$1.js'
+        'name': 'constant.language.boolean.$1.juttle'
       '2':
-        'name': 'constant.language.boolean.$2.js'
+        'name': 'constant.language.boolean.$2.juttle'
   }
   {
     'match': '(?<!\\.)\\b(null)(?!\\s*:)\\b|(?<=\\?)(?:\\s*)(null)(?=\\s*:)'
     'captures':
       '1':
-        'name': 'constant.language.null.js'
+        'name': 'constant.language.null.juttle'
       '2':
-        'name': 'constant.language.null.js'
+        'name': 'constant.language.null.juttle'
   }
   {
     'match': '(?<!\\.)\\b([A-Z][A-Z0-9_]+)(?!\\s*:)\\b|(?<=\\?)(?:\\s*)([A-Z][A-Z0-9_]+)(?=\\s*:)'
     'captures':
       '1':
-        'name': 'constant.other.js'
+        'name': 'constant.other.juttle'
       '2':
-        'name': 'constant.other.js'
+        'name': 'constant.other.juttle'
   }
   {
     'match': '(?<!\\.)\\b(debugger)(?!\\s*:)\\b|(?<=\\?)(?:\\s*)(debugger)(?=\\s*:)'
     'captures':
       '1':
-        'name': 'keyword.other.js'
+        'name': 'keyword.other.juttle'
       '2':
-        'name': 'keyword.other.js'
+        'name': 'keyword.other.juttle'
   }
   {
     'match': '(?<!\\$)\\b(Anchor|Applet|Area|Array|Boolean|Button|Checkbox|Date|document|event|FileUpload|Form|Frame|Function|Hidden|History|Image|JavaArray|JavaClass|JavaObject|JavaPackage|java|Layer|Link|Location|Map|Math|MimeType|Number|navigator|netscape|Object|Option|Packages|Password|Plugin|Radio|RegExp|Reset|Select|Set|String|Style|Submit|Symbol|screen|sun|Text|Textarea|WeakMap|WeakSet|window|XMLHttpRequest)\\b'
-    'name': 'support.class.js'
+    'name': 'support.class.juttle'
   }
   {
     'match': '(\\.)?(shift|showModelessDialog|showModalDialog|showHelp|scroll|scrollX|scrollByPages|scrollByLines|scrollY|scrollTo|stop|strike|sin|sizeToContent|sidebar|signText|sort|sup|sub|substr|substring|splice|split|send|set(Milliseconds|Seconds|Minutes|Hours|Month|Year|FullYear|Date|UTC(Milliseconds|Seconds|Minutes|Hours|Month|FullYear|Date)|Time|Hotkeys|Cursor|Timeout|Interval|ZOptions|Active|Resizable|RequestHeader)|search|sqrt|slice|savePreferences|small|home|handleEvent|navigate|char|charCodeAt|charAt|cos|concat|contextual|confirm|compile|ceil|clear|clearTimeout|clearInterval|captureEvents|call|createStyleSheet|createPopup|createEventObject|to(GMTString|UTCString|String|Source|UpperCase|LowerCase|LocaleString)|test|tan|taint|taintEnabled|isNaN|isFinite|indexOf|italics|disableExternalCapture|dump|detachEvent|unshift|untaint|unescape|unwatch|updateCommands|join|javaEnabled|pop|pow|push|plugins.refresh|paddings|parse|parseInt|parseFloat|print|prompt|preference|escape|enableExternalCapture|eval|elementFromPoint|exp|exec|execScript|execCommand|valueOf|UTC|queryCommandState|queryCommandIndeterm|queryCommandEnabled|queryCommandValue|find|file|fileModifiedDate|fileSize|fileCreatedDate|fileUpdatedDate|fixed|fontsize|fontcolor|forward|floor|fromCharCode|watch|link|load|log|lastIndexOf|asin|anchor|acos|attachEvent|atob|atan|atan2|apply|alert|abs|abort|round|routeEvents|resize|resizeBy|resizeTo|recalc|returnValue|replace|reverse|reload|releaseCapture|releaseEvents|random|go|get(Milliseconds|Seconds|Minutes|Hours|Month|Day|Year|FullYear|Time|Date|TimezoneOffset|UTC(Milliseconds|Seconds|Minutes|Hours|Day|Month|FullYear|Date)|Attention|Selection|ResponseHeader|AllResponseHeaders)|min|moveBy|moveBelow|moveTo|moveToAbsolute|moveAbove|mergeAttributes|match|margins|max|btoa|big|bold|borderWidths|blink|back)\\b(?=\\()'
     'captures':
       '1':
-        'name': 'meta.delimiter.method.period.js'
+        'name': 'meta.delimiter.method.period.juttle'
       '2':
-        'name': 'support.function.js'
+        'name': 'support.function.juttle'
   }
   {
     'match': '(\\.)(substringData|submit|splitText|setNamedItem|setAttribute|setAttributeNode|select|hasChildNodes|hasFeature|namedItem|click|close|cloneNode|createComment|createCDATASection|createCaption|createTHead|createTextNode|createTFoot|createDocumentFragment|createProcessingInstruction|createEntityReference|createElement|createAttribute|tabIndex|insertRow|insertBefore|insertCell|insertData|item|open|deleteRow|deleteCell|deleteCaption|deleteTHead|deleteTFoot|deleteData|focus|write|writeln|add|appendChild|appendData|reset|replaceChild|replaceData|move|moveNamedItem|moveChild|moveAttribute|moveAttributeNode|getNamedItem|getElementsByName|getElementsByTagName|getElementById|getAttribute|getAttributeNode|blur)\\b(?=\\\()'
     'captures':
       '1':
-        'name': 'meta.delimiter.method.period.js'
+        'name': 'meta.delimiter.method.period.juttle'
       '2':
-        'name': 'support.function.dom.js'
+        'name': 'support.function.dom.juttle'
   }
   {
     'match': '(\\.)(systemLanguage|scripts|scrollbars|screenX|screenY|screenTop|screenLeft|style|styleSheets|status|statusText|statusbar|siblingBelow|siblingAbove|source|suffixes|security|securityPolicy|selection|self|history|host|hostname|hash|hasFocus|XMLDocument|XSLDocument|next|namespaces|namespaceURI|nameProp|MIN_VALUE|MAX_VALUE|characterSet|constructor|controllers|cookieEnabled|colorDepth|components|complete|current|cpuClass|clip|clipBoardData|clientInformation|closed|classes|callee|caller|crypto|toolbar|top|textTransform|textIndent|textDecoration|textAlign|tags|SQRT1_2|SQRT2|innerHeight|innerWidth|input|ids|ignoreCase|zIndex|oscpu|onreadystatechange|onLine|outerHeight|outerWidth|opsProfile|opener|offscreenBuffering|NEGATIVE_INFINITY|display|dialogHeight|dialogTop|dialogWidth|dialogLeft|dialogArguments|directories|description|defaultStatus|defaultChecked|defaultCharset|defaultView|userProfile|userLanguage|userAgent|uniqueID|undefined|updateInterval|_content|pixelDepth|port|personalbar|pkcs11|plugins|platform|pathname|paddingRight|paddingBottom|paddingTop|paddingLeft|parent|parentWindow|parentLayer|pageX|pageXOffset|pageY|pageYOffset|protocol|prototype|product|productSub|prompter|previous|prefix|encoding|enabledPlugin|external|expando|embeds|visiblity|vendor|vendorSub|vLinkcolor|URLUnencoded|PI|POSITIVE_INFINITY|filename|fontSize|fontFamily|fontWeight|formName|frames|frameElement|fgColor|E|whiteSpace|listStyleType|lineHeight|linkColor|location|locationbar|localName|lowsrc|length|left|leftContext|lastModified|lastMatch|lastIndex|lastParen|layers|layerX|language|appMinorVersion|appName|appCodeName|appCore|appVersion|availHeight|availTop|availWidth|availLeft|all|arity|arguments|aLinkcolor|above|right|rightContext|responseXML|responeText|readyState|global|x|y|z|mimeTypes|multiline|menubar|marginRight|marginBottom|marginTop|marginLeft|LN10|LN2|LOG10E|LOG2E|bottom|border(Width|RightWidth|BottomWidth|Style|Color|TopWidth|LeftWidth)|bufferDepth|below|backgroundColor|backgroundImage)\\b'
     'captures':
       '1':
-        'name': 'meta.delimiter.property.period.js'
+        'name': 'meta.delimiter.property.period.juttle'
       '2':
-        'name': 'support.constant.js'
+        'name': 'support.constant.juttle'
   }
   {
     'match': '(\\.)(shape|systemId|scheme|scope|scrolling|standby|start|size|summary|specified|sectionRowIndex|selected|selectedIndex|hspace|httpEquiv|htmlFor|height|headers|href|hreflang|noResize|notations|notationName|noShade|noHref|nodeName|nodeType|nodeValue|noWrap|nextSibling|name|ch|childNodes|chOff|checked|charset|cite|content|cookie|cords|code|codeBase|codeType|cols|colSpan|color|compact|cells|cellSpacing|cellPadding|clear|className|caption|type|tBodies|title|tHead|text|target|tagName|tFoot|isMap|index|id|implementation|images|options|ownerDocument|object|disabled|dir|doctype|documentElement|docmain|declare|defer|defaultSelected|defaultChecked|defaultValue|dateTime|data|useMap|publicId|parentNode|profile|profileend|prompt|previousDibling|enctype|entities|event|elements|vspace|version|value|valueType|vLink|vAlign|URL|firstChild|form|forms|face|frame|frameBorder|width|link|links|longDesc|lowSrc|lastChild|lang|label|anchors|accessKey|accept|acceptCharset|action|attributes|applets|alt|align|archive|areas|axis|aLink|abbr|rows|rowSpan|rowIndex|rules|rev|referrer|rel|readOnly|multiple|method|media|marginHeight|marginWidth|maxLength|body|border|background|bgColor)\\b'
     'captures':
       '1':
-        'name': 'meta.delimiter.property.period.js'
+        'name': 'meta.delimiter.property.period.juttle'
       '2':
-        'name': 'support.constant.dom.js'
+        'name': 'support.constant.dom.juttle'
   }
   {
     'match': '\\b(ELEMENT_NODE|ATTRIBUTE_NODE|TEXT_NODE|CDATA_SECTION_NODE|ENTITY_REFERENCE_NODE|ENTITY_NODE|PROCESSING_INSTRUCTION_NODE|COMMENT_NODE|DOCUMENT_NODE|DOCUMENT_TYPE_NODE|DOCUMENT_FRAGMENT_NODE|NOTATION_NODE|INDEX_SIZE_ERR|DOMSTRING_SIZE_ERR|HIERARCHY_REQUEST_ERR|WRONG_DOCUMENT_ERR|INVALID_CHARACTER_ERR|NO_DATA_ALLOWED_ERR|NO_MODIFICATION_ALLOWED_ERR|NOT_FOUND_ERR|NOT_SUPPORTED_ERR|INUSE_ATTRIBUTE_ERR)\\b'
-    'name': 'support.constant.dom.js'
+    'name': 'support.constant.dom.juttle'
   }
   {
     'match': '\\bon(Rowsinserted|Rowsdelete|Rowenter|Rowexit|Resize|Resizestart|Resizeend|Reset|Readystatechange|Mouseout|Mouseover|Mousedown|Mouseup|Mousemove|Before(cut|deactivate|unload|update|paste|print|editfocus|activate)|Blur|Scrolltop|Submit|Select|Selectstart|Selectionchange|Hover|Help|Change|Contextmenu|Controlselect|Cut|Cellchange|Clock|Close|Deactivate|Datasetchanged|Datasetcomplete|Dataavailable|Drop|Drag|Dragstart|Dragover|Dragdrop|Dragenter|Dragend|Dragleave|Dblclick|Unload|Paste|Propertychange|Error|Errorupdate|Keydown|Keyup|Keypress|Focus|Load|Activate|Afterupdate|Afterprint|Abort)\\b'
-    'name': 'support.function.event-handler.js'
+    'name': 'support.function.event-handler.juttle'
   }
   {
     'match': '(?<!\\.)\\b(require)(?!\\s*:)\\b'
-    'name': 'support.function.js'
+    'name': 'support.function.juttle'
   }
   {
     'match': '(?<!\\.)\\b(module|exports|__filename|__dirname|global|process)(?!\\s*:)\\b|(?<=\\?)(?:\\s*)(module|exports|__filename|__dirname|global|process)(?=\\s*:)'
     'captures':
       '1':
-        'name': 'support.variable.js'
+        'name': 'support.variable.juttle'
       '2':
-        'name': 'support.variable.js'
+        'name': 'support.variable.juttle'
   }
   {
     'match': '\\b(Infinity|NaN|undefined)\\b'
-    'name': 'constant.language.js'
+    'name': 'constant.language.juttle'
   }
   {
     'begin': '(?<=[\\[=(?:+,!]|^|return|&&|\\|\\|)\\s*(/)(?![/*+{}?])(?=.*/)'
     'beginCaptures':
       '1':
-        'name': 'punctuation.definition.string.begin.js'
+        'name': 'punctuation.definition.string.begin.juttle'
     'end': '(/)[gimuy]*'
     'endCaptures':
       '1':
-        'name': 'punctuation.definition.string.end.js'
-    'name': 'string.regexp.js'
+        'name': 'punctuation.definition.string.end.juttle'
+    'name': 'string.regexp.juttle'
     'patterns': [
       {
-        'include': 'source.js.regexp'
+        'include': 'source.juttle.regexp'
       }
     ]
   }
@@ -869,53 +856,53 @@
   }
   {
     'match': '(?<!\\$)\\b[0-9]+[\\w$]*'
-    'name': 'invalid.illegal.identifier.js'
+    'name': 'invalid.illegal.identifier.juttle'
   }
   {
     'match': '\\;'
-    'name': 'punctuation.terminator.statement.js'
+    'name': 'punctuation.terminator.statement.juttle'
   }
   {
     'match': ','
-    'name': 'meta.delimiter.object.comma.js'
+    'name': 'meta.delimiter.object.comma.juttle'
   }
   {
     'match': '\\.'
-    'name': 'meta.delimiter.method.period.js'
+    'name': 'meta.delimiter.method.period.juttle'
   }
   {
     'captures':
       '1':
-        'name': 'punctuation.section.scope.begin.js'
+        'name': 'punctuation.section.scope.begin.juttle'
       '2':
-        'name': 'punctuation.section.scope.end.js'
+        'name': 'punctuation.section.scope.end.juttle'
     'comment': 'Allows the special return snippet to fire.'
     'match': '({)(})'
   }
   {
     'match': '{|}'
-    'name': 'meta.brace.curly.js'
+    'name': 'meta.brace.curly.juttle'
   }
   {
     'begin': '\\('
     'beginCaptures':
       '0':
-        'name': 'meta.brace.round.js'
+        'name': 'meta.brace.round.juttle'
     'end': '\\)'
     'endCaptures':
       '0':
-        'name': 'meta.brace.round.js'
+        'name': 'meta.brace.round.juttle'
     'patterns': [
       'include': '$self'
     ]
   }
   {
     'match': '\\[|\\]'
-    'name': 'meta.brace.square.js'
+    'name': 'meta.brace.square.juttle'
   }
   {
     'match': '\\A#!.*$'
-    'name': 'comment.line.shebang.js'
+    'name': 'comment.line.shebang.juttle'
   }
 ]
 'repository':
@@ -923,15 +910,15 @@
     'patterns': [
       {
         'match': '\\b(?<!\\$)0(x|X)[0-9a-fA-F]+\\b(?!\\$)'
-        'name': 'constant.numeric.hex.js'
+        'name': 'constant.numeric.hex.juttle'
       }
       {
         'match': '\\b(?<!\\$)0(b|B)[01]+\\b(?!\\$)'
-        'name': 'constant.numeric.binary.js'
+        'name': 'constant.numeric.binary.juttle'
       }
       {
         'match': '\\b(?<!\\$)0(o|O)?[0-7]+\\b(?!\\$)'
-        'name': 'constant.numeric.octal.js'
+        'name': 'constant.numeric.octal.juttle'
       }
       {
         'match': '''(?x)
@@ -948,62 +935,62 @@
         '''
         'captures':
           '0':
-            'name': 'constant.numeric.decimal.js'
+            'name': 'constant.numeric.decimal.juttle'
           '1':
-            'name': 'meta.delimiter.decimal.period.js'
+            'name': 'meta.delimiter.decimal.period.juttle'
           '2':
-            'name': 'meta.delimiter.decimal.period.js'
+            'name': 'meta.delimiter.decimal.period.juttle'
           '3':
-            'name': 'meta.delimiter.decimal.period.js'
+            'name': 'meta.delimiter.decimal.period.juttle'
           '4':
-            'name': 'meta.delimiter.decimal.period.js'
+            'name': 'meta.delimiter.decimal.period.juttle'
           '5':
-            'name': 'meta.delimiter.decimal.period.js'
+            'name': 'meta.delimiter.decimal.period.juttle'
           '6':
-            'name': 'meta.delimiter.decimal.period.js'
+            'name': 'meta.delimiter.decimal.period.juttle'
       }
     ]
   'operators':
     'patterns': [
       {
         'match': '%=|\\+=|-=|\\*=|(?<!\\()/='
-        'name': 'keyword.operator.assignment.compound.js'
+        'name': 'keyword.operator.assignment.compound.juttle'
       }
       {
         'match': '&=|\\^=|<<=|>>=|>>>=|\\|='
-        'name': 'keyword.operator.assignment.compound.bitwise.js'
+        'name': 'keyword.operator.assignment.compound.bitwise.juttle'
       }
       {
         'match': '!==|!=|<=|>=|===|==|<|>'
-        'name': 'keyword.operator.comparison.js'
+        'name': 'keyword.operator.comparison.juttle'
       }
       {
         'match': '&&|!|\\|\\|'
-        'name': 'keyword.operator.logical.js'
+        'name': 'keyword.operator.logical.juttle'
       }
       {
         'match': '&|\\||\\^|~'
-        'name': 'keyword.operator.bitwise.js'
+        'name': 'keyword.operator.bitwise.juttle'
       }
       {
         'match': '\\?|:'
-        'name': 'keyword.operator.js'
+        'name': 'keyword.operator.juttle'
       }
       {
         'match': '='
-        'name': 'keyword.operator.assignment.js'
+        'name': 'keyword.operator.assignment.juttle'
       }
       {
         'match': '--'
-        'name': 'keyword.operator.decrement.js'
+        'name': 'keyword.operator.decrement.juttle'
       }
       {
         'match': '\\+\\+'
-        'name': 'keyword.operator.increment.js'
+        'name': 'keyword.operator.increment.juttle'
       }
       {
         'match': '%|\\*|/|-|\\+'
-        'name': 'keyword.operator.js'
+        'name': 'keyword.operator.juttle'
       }
     ]
   'strings':
@@ -1012,20 +999,20 @@
         'begin': '\''
         'beginCaptures':
           '0':
-            'name': 'punctuation.definition.string.begin.js'
+            'name': 'punctuation.definition.string.begin.juttle'
         'end': '\''
         'endCaptures':
           '0':
-            'name': 'punctuation.definition.string.end.js'
-        'name': 'string.quoted.single.js'
+            'name': 'punctuation.definition.string.end.juttle'
+        'name': 'string.quoted.single.juttle'
         'patterns': [
           {
             'match': '\\\\(x\\h{2}|[0-2][0-7]{0,2}|3[0-6][0-7]?|37[0-7]?|[4-7][0-7]?|.)'
-            'name': 'constant.character.escape.js'
+            'name': 'constant.character.escape.juttle'
           }
           {
             'match': "[^']*[^\\n\\r'\\\\]$"
-            'name': 'invalid.illegal.string.js'
+            'name': 'invalid.illegal.string.juttle'
           }
         ]
       }
@@ -1033,20 +1020,20 @@
         'begin': '"'
         'beginCaptures':
           '0':
-            'name': 'punctuation.definition.string.begin.js'
+            'name': 'punctuation.definition.string.begin.juttle'
         'end': '"'
         'endCaptures':
           '0':
-            'name': 'punctuation.definition.string.end.js'
-        'name': 'string.quoted.double.js'
+            'name': 'punctuation.definition.string.end.juttle'
+        'name': 'string.quoted.double.juttle'
         'patterns': [
           {
             'match': '\\\\(x\\h{2}|[0-2][0-7]{0,2}|3[0-6][0-7]|37[0-7]?|[4-7][0-7]?|.)'
-            'name': 'constant.character.escape.js'
+            'name': 'constant.character.escape.juttle'
           }
           {
             'match': '[^"]*[^\\n\\r"\\\\]$'
-            'name': 'invalid.illegal.string.js'
+            'name': 'invalid.illegal.string.juttle'
           }
         ]
       }
@@ -1054,21 +1041,21 @@
         'begin': '((\\w+)?(html|HTML|Html))\\s*(`)'
         'beginCaptures':
           '1':
-            'name': 'entity.name.function.js'
+            'name': 'entity.name.function.juttle'
           '4':
-            'name': 'punctuation.definition.string.begin.js'
+            'name': 'punctuation.definition.string.begin.juttle'
         'end': '`'
         'endCaptures':
           '0':
-            'name': 'punctuation.definition.string.end.js'
-        'name': 'string.quoted.template.html.js'
+            'name': 'punctuation.definition.string.end.juttle'
+        'name': 'string.quoted.template.html.juttle'
         'patterns': [
           {
             'match': '\\\\(x\\h{2}|[0-2][0-7]{0,2}|3[0-6][0-7]?|37[0-7]?|[4-7][0-7]?|.)'
-            'name': 'constant.character.escape.js'
+            'name': 'constant.character.escape.juttle'
           }
           {
-            'include': '#interpolated_js'
+            'include': '#interpolated_juttle'
           }
           {
             'include': 'text.html.basic'
@@ -1079,21 +1066,21 @@
         'begin': '((\\w+)?(css|CSS|Css))\\s*(`)'
         'beginCaptures':
           '1':
-            'name': 'entity.name.function.js'
+            'name': 'entity.name.function.juttle'
           '4':
-            'name': 'punctuation.definition.string.begin.js'
+            'name': 'punctuation.definition.string.begin.juttle'
         'end': '`'
         'endCaptures':
           '0':
-            'name': 'punctuation.definition.string.end.js'
-        'name': 'string.quoted.template.css.js'
+            'name': 'punctuation.definition.string.end.juttle'
+        'name': 'string.quoted.template.css.juttle'
         'patterns': [
           {
             'match': '\\\\(x\\h{2}|[0-2][0-7]{0,2}|3[0-6][0-7]?|37[0-7]?|[4-7][0-7]?|.)'
-            'name': 'constant.character.escape.js'
+            'name': 'constant.character.escape.juttle'
           }
           {
-            'include': '#interpolated_js'
+            'include': '#interpolated_juttle'
           }
           {
             'include': 'source.css'
@@ -1104,19 +1091,19 @@
         'begin': '`'
         'beginCaptures':
           '0':
-            'name': 'punctuation.definition.string.begin.js'
+            'name': 'punctuation.definition.string.begin.juttle'
         'end': '`'
         'endCaptures':
           '0':
-            'name': 'punctuation.definition.string.end.js'
-        'name': 'string.quoted.template.js'
+            'name': 'punctuation.definition.string.end.juttle'
+        'name': 'string.quoted.template.juttle'
         'patterns': [
           {
             'match': '\\\\(x\\h{2}|[0-2][0-7]{0,2}|3[0-6][0-7]?|37[0-7]?|[4-7][0-7]?|.)'
-            'name': 'constant.character.escape.js'
+            'name': 'constant.character.escape.juttle'
           }
           {
-            'include': '#interpolated_js'
+            'include': '#interpolated_juttle'
           }
         ]
       }
@@ -1124,18 +1111,18 @@
   'methods':
     'patterns': [
       {
-        'name': 'meta.method.js'
+        'name': 'meta.method.juttle'
         'comment': 'match regular function like: function myFunc(arg) { … }'
         'begin': '\\b((?!(?:break|case|catch|continue|do|else|finally|for|function|if|export|import|package|return|switch|throw|try|while|with)[\\s\\(])(?:[a-zA-Z_$][a-zA-Z_$0-9]*))\\s*(\\()(?=(?:[^\\(\\)]*)?\\)\\s*\\{)'
         'beginCaptures':
           '1':
-            'name': 'entity.name.function.js'
+            'name': 'entity.name.function.juttle'
           '2':
-            'name': 'punctuation.definition.parameters.begin.js'
+            'name': 'punctuation.definition.parameters.begin.juttle'
         'end': '(\\))'
         'endCaptures':
           '1':
-            'name': 'punctuation.definition.parameters.end.js'
+            'name': 'punctuation.definition.parameters.end.juttle'
         'patterns': [
           {
             'include': '#function-params'
@@ -1156,30 +1143,30 @@
       }
       {
         'match': '\\(|\\)'
-        'name': 'meta.brace.round.js'
+        'name': 'meta.brace.round.juttle'
       }
       {
         'match': '\\[|\\]'
-        'name': 'meta.brace.square.js'
+        'name': 'meta.brace.square.juttle'
       }
       {
         'match': '{|}'
-        'name': 'meta.brace.curly.js'
+        'name': 'meta.brace.curly.juttle'
       }
       {
         'match': ','
-        'name': 'meta.object.delimiter.js'
+        'name': 'meta.object.delimiter.juttle'
       }
       {
         'match': '='
-        'name': 'keyword.operator.assignment.js'
+        'name': 'keyword.operator.assignment.juttle'
       }
       {
         'include': '#comments'
       }
       {
         'match': '[a-zA-Z_$][a-zA-Z_$0-9]*'
-        'name': 'variable.parameter.function.js'
+        'name': 'variable.parameter.function.juttle'
       }
     ]
   'arguments':
@@ -1195,16 +1182,16 @@
         'begin': '(\\.)([a-zA-Z_$][\\w$]*)\\s*(\\()'
         'beginCaptures':
           '1':
-            'name': 'meta.delimiter.method.period.js'
+            'name': 'meta.delimiter.method.period.juttle'
           '2':
-            'name': 'entity.name.function.js'
+            'name': 'entity.name.function.juttle'
           '3':
-            'name': 'punctuation.definition.arguments.begin.js'
+            'name': 'punctuation.definition.arguments.begin.juttle'
         'end': '\\)'
         'endCaptures':
           '0':
-            'name': 'punctuation.definition.arguments.end.js'
-        'name': 'meta.method-call.js'
+            'name': 'punctuation.definition.arguments.end.juttle'
+        'name': 'meta.method-call.juttle'
         'patterns': [
           {
             'include': '#arguments'
@@ -1219,16 +1206,16 @@
         'begin': '(?:(\\d\\w*)|([a-zA-Z_$][\\w$]*))\\s*(\\()'
         'beginCaptures':
           '1':
-            'name': 'invalid.illegal.identifier.js'
+            'name': 'invalid.illegal.identifier.juttle'
           '2':
-            'name': 'entity.name.function.js'
+            'name': 'entity.name.function.juttle'
           '3':
-            'name': 'punctuation.definition.arguments.begin.js'
+            'name': 'punctuation.definition.arguments.begin.juttle'
         'end': '\\)'
         'endCaptures':
           '0':
-            'name': 'punctuation.definition.arguments.end.js'
-        'name': 'meta.function-call.js'
+            'name': 'punctuation.definition.arguments.end.juttle'
+        'name': 'meta.function-call.juttle'
         'patterns': [
           {
             'include': '#arguments'
@@ -1243,9 +1230,9 @@
         'match': '(?:([a-zA-Z_$][\\w$]*)|(\\d\\w*))(?=\\s*\\.\\s*[a-zA-Z_$]\\w*)'
         'captures':
           '1':
-            'name': 'variable.other.object.js'
+            'name': 'variable.other.object.juttle'
           '2':
-            'name': 'invalid.illegal.identifier.js'
+            'name': 'invalid.illegal.identifier.juttle'
       }
     ]
   'properties':
@@ -1255,34 +1242,34 @@
         'match': '(\\.)\\s*(?:([0-9]+[\\w$]*)|([A-Z][A-Z0-9_$]*\\b\\$*)|(\\$*[a-zA-Z_$][\\w$]*))'
         'captures':
           '1':
-            'name': 'meta.delimiter.property.period.js'
+            'name': 'meta.delimiter.property.period.juttle'
           '2':
-            'name': 'invalid.illegal.identifier.js'
+            'name': 'invalid.illegal.identifier.juttle'
           '3':
-            'name': 'constant.other.property.js'
+            'name': 'constant.other.property.juttle'
           '4':
-            'name': 'variable.other.property.js'
+            'name': 'variable.other.property.juttle'
       }
     ]
-  'interpolated_js':
+  'interpolated_juttle':
     'patterns': [
       {
         'begin': '\\$\\{'
         'captures':
           '0':
-            'name': 'punctuation.section.embedded.js'
+            'name': 'punctuation.section.embedded.juttle'
         'end': '\\}'
-        'name': 'source.js.embedded.source'
+        'name': 'source.juttle.embedded.source'
         'patterns': [
           {
             'begin': '{'
             'beginCaptures':
               '0':
-                'name': 'meta.brace.curly.js'
+                'name': 'meta.brace.curly.juttle'
             'end': '}'
             'endCaptures':
               '0':
-                'name': 'meta.brace.curly.js'
+                'name': 'meta.brace.curly.juttle'
             'patterns': [
               {
                 'include': '$self'
@@ -1299,7 +1286,7 @@
     'patterns': [
       {
         'match': '(?<!\\w)@(abstract|access|alias|augments|author|async|attribute|arg|argument|beta|borrows|bubbes|callback|class|classdesc|config|const|constant|constructs|constructor|copyright|chainable|default|defaultvalue|deprecated|desc|description|enum|emits|event|example|exports|external|extends|extension|extensionfor|extension_for|for|file|fileoverview|fires|final|function|global|host|ignore|implements|inheritdoc|inner|instance|interface|kind|lends|license|listens|main|member|memberof|method|mixex|mixin(?:s|)|module|name|namespace|override|overview|param|private|prop|property|protected|readonly|readOnly|requires|required|return|returns|see|since|static|summary|submodule|this|throws|todo|tutorial|type|typedef|var|variation|version|virtual|uses|writeOnce)\\b'
-        'name': 'storage.type.class.jsdoc'
+        'name': 'storage.type.class.juttledoc'
       }
     ]
   'comments':
@@ -1308,37 +1295,37 @@
         'begin': '/\\*\\*(?!/)'
         'captures':
           '0':
-            'name': 'punctuation.definition.comment.js'
+            'name': 'punctuation.definition.comment.juttle'
         'patterns': [
           {
             'include': '#docblock'
           }
         ]
         'end': '\\*/'
-        'name': 'comment.block.documentation.js'
+        'name': 'comment.block.documentation.juttle'
       }
       {
         'begin': '/\\*'
         'captures':
           '0':
-            'name': 'punctuation.definition.comment.js'
+            'name': 'punctuation.definition.comment.juttle'
         'end': '\\*/'
-        'name': 'comment.block.js'
+        'name': 'comment.block.juttle'
       }
       {
         'begin': '(^[ \\t]+)?(?=//)'
         'beginCaptures':
           '1':
-            'name': 'punctuation.whitespace.comment.leading.js'
+            'name': 'punctuation.whitespace.comment.leading.juttle'
         'end': '(?!\\G)'
         'patterns': [
           {
             'begin': '//'
             'beginCaptures':
               '0':
-                'name': 'punctuation.definition.comment.js'
+                'name': 'punctuation.definition.comment.juttle'
             'end': '\\n'
-            'name': 'comment.line.double-slash.js'
+            'name': 'comment.line.double-slash.juttle'
           }
         ]
       }
