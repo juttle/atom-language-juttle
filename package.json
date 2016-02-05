@@ -1,0 +1,22 @@
+{
+  "name": "language-juttle",
+  "version": "0.1.0",
+  "description": "Juttle language support in Atom",
+  "engines": {
+    "atom": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/juttle/atom-language-juttle.git"
+  },
+  "keywords": [
+    "juttle",
+    "atom",
+    "language"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/juttle/atom-language-juttle/issues"
+  },
+  "homepage": "https://github.com/juttle/atom-language-juttle#readme"
+}
