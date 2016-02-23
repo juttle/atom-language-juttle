@@ -257,6 +257,22 @@
           }
         ]
       }
+      {
+        'match': ':\\d{4}-\\d{2}-\\d{2}(T\\d{2}:\\d{2}:\\d{2}(\.\\d*)?)?(Z|[+-]\\d{2}:\\d{2}|[+-]\\d{4})?:',
+        'name': 'string.quoted.moment.juttle'
+      }
+      {
+        'match': ':\\d{2}:\\d{2}:\\d{2}(\.\\d*)?:',
+        'name': 'string.quoted.moment.juttle'
+      }
+      {
+        'match': ':(now|beginning|end|forever|yesterday|today|tomorrow|\\d+(\.\\d*)?|\\d+[smhdwMy]):'
+        'name': 'string.quoted.moment.juttle'
+      }
+      {
+        'match': ':(\\d+[ ]+)?(millisecond|second|minute|hour|day|week|month|year)[s]?(([ ]+and[ ]+(\\d+[ ]+)?(millisecond|second|minute|hour|day|week|month|year)[s]?)|[ ]+(ago|from[ ]+now))*:',
+        'name': 'string.quoted.moment.juttle'
+      }
     ]
   'methods':
     'patterns': [
