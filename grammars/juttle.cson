@@ -266,11 +266,11 @@
         'name': 'string.quoted.moment.juttle'
       }
       {
-        'match': ':(now|beginning|end|forever|yesterday|today|tomorrow|\\d+(\.\\d*)?|\\d+[smhdwMy]):'
+        'match': ':(now|beginning|end|forever|yesterday|today|tomorrow|(\\d+(\.\\d*)?|\.\\d+)(ms|[smhdwMy])?):'
         'name': 'string.quoted.moment.juttle'
       }
       {
-        'match': ':(\\d+[ ]+)?(millisecond|second|minute|hour|day|week|month|year)[s]?(([ ]+and[ ]+(\\d+[ ]+)?(millisecond|second|minute|hour|day|week|month|year)[s]?)|[ ]+(ago|from[ ]+now))*:',
+        'match': ':((\\d+(\.\\d*)?|\.\\d+)[ ]+)?(millisecond|second|minute|hour|day|week|month|year)[s]?(([ ]+and[ ]+(\\d+[ ]+)?(millisecond|second|minute|hour|day|week|month|year)[s]?)|[ ]+(ago|from[ ]+now))*:',
         'name': 'string.quoted.moment.juttle'
       }
     ]
